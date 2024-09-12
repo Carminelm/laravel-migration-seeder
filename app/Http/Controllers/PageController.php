@@ -9,6 +9,7 @@ class PageController extends Controller
 {
     public function index (){
 
+        $trains = Train::orderBy('id')->get();
 
 
 
