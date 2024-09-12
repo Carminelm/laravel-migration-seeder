@@ -1,4 +1,3 @@
-{{-- questa view estende il file main.blade.php che è dentro la cartella view/layouts --}}
 @extends('layouts.main')
 
 @section('hero')
@@ -6,17 +5,26 @@
 @endsection
 
 @section('content')
-<div class="container my-5">
-    <h1>{{ $title }}</h1>
-    <img src="{{ Vite::asset('resources/img/colibri.jpg') }}" alt="" class="img-fluid">
-    <p>
-        {{ $text }}
-    </p>
-</div>
+<table class="table">
+@foreach ($trains as $train)
+  <tbody>
+    <tr>
+      <td>{{$train->id}}</td>
+      <td>{{$train->azienda}}<</td>
+      <td>{{$train->stazione_di_partenza}}</td>
+      <td>{{$train->stazione_di_arrivo}}</td>
+      <td>{{$train->orario_di_partenza}}</td>
+      <td>{{$train->orario_di_arrivo}}</td>
+      <td>{{$train->codice_treno}}</td>
+      <td>{{$train->numero_carrozze}}</td>
+      <td>{{$train->in_orario}}</td>
+      <td>{{$train->cancellato}}</td>
+      <td>{{$train->created_at}}</td>
+      <td>{{$train->updated_at}}</td>
 
-@endsection
+    </tr>
+@endforeach
+  </tbody>
+</table>
 
-
-@section('titlePage')
-    home
 @endsection
